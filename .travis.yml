@@ -1,0 +1,42 @@
+sudo: false
+cache: bundler
+
+language: ruby
+
+services:
+  - mysql
+  - postgresql
+
+rvm:
+  - 2.3.4
+  - 2.4.4
+  - 2.5.1
+
+gemfile:
+  - gemfiles/rails_5_0.gemfile
+  - gemfiles/rails_5_0_edge.gemfile
+  - gemfiles/rails_5_1.gemfile
+  - gemfiles/rails_5_1_edge.gemfile
+  - gemfiles/rails_5_2.gemfile
+  - gemfiles/rails_5_2_edge.gemfile
+
+env:
+  - DB=sqlite3
+  - DB=mysql DB_USERNAME=travis
+  - DB=postgresql DB_USERNAME=postgres
+
+before_install:
+  - gem update --system
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS profiler_test;'
+  - psql -c 'CREATE DATABASE profiler_test;' -U postgres
+
+script:
+  - bundle exec rake test_app
+  - bundle exec rspec
+
+matrix:
+  allow_failures:
+    - gemfile: gemfiles/rails_5_0_edge.gemfile
+    - gemfile: gemfiles/rails_5_1_edge.gemfile
+    - gemfile: gemfiles/rails_5_2_edge.gemfile
+    

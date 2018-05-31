@@ -1,0 +1,57 @@
+inherit_from:
+  - '.rubocop_disabled.yml'
+
+AllCops:
+  Exclude:
+    - '**/spec/dummy/**/*'
+  # Makes it easier to find which cop is responsible for emitting the error
+  TargetRubyVersion: '2.5'
+
+Rails:
+  Enabled: true
+
+Rails/Output:
+  Exclude:
+    - 'lib/generators/**/*'
+    - 'lib/profiler/**/*'
+
+Metrics/LineLength:
+  Description: 'Limit lines to 120 characters.'
+  Max: 120
+
+Metrics/MethodLength:
+  CountComments: false
+  Description: 'Avoid methods longer than 30 lines of code.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#short-methods'
+  Enabled: true
+  Max: 30
+
+Metrics/ModuleLength:
+  CountComments: false
+  Description: 'Avoid modules longer than 250 lines of code.'
+  Enabled: true
+  Max: 250
+
+Metrics/AbcSize:
+  Max: 45
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 50
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - '**/spec/**/*.rb'
+    - '**/*.gemspec'
+
+Style/StringLiterals: 
+  Exclude:
+    - 'gemfiles/*.gemfile'
+
+Bundler/OrderedGems:
+  Exclude:
+    - 'gemfiles/*.gemfile'
+
+Naming/PredicateName:
+  Exclude:
+    - 'lib/profiler/active_record.rb'

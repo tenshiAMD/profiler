@@ -1,0 +1,32 @@
+ENV['RAILS_ENV'] ||= 'test'
+
+begin
+  require File.expand_path('dummy/config/environment', __dir__)
+rescue LoadError
+  puts 'Could not load dummy application. Please ensure you have run `bundle exec rake test_app`'
+end
+
+# Prevent database truncation if the environment is production
+abort('The Rails environment is running in production mode!') if Rails.env.production?
+
+require 'profiler/testing_support/requirements'
+require 'profiler/testing_support/factories'
+require 'profiler/testing_support/frameworks'
+
+RSpec.configure do |config|
+  config.color = true
+  config.fail_fast = ENV['FAIL_FAST'] || false
+  config.fixture_path = File.join(__dir__, 'fixtures')
+  config.infer_spec_type_from_file_location!
+  config.mock_with :rspec
+  config.raise_errors_for_deprecations!
+
+  # If you're not using ActiveRecord, or you'd prefer not to run each of your
+  # examples within a transaction, comment the following line or assign false
+  # instead of true.
+  config.use_transactional_fixtures = true
+
+  config.around do |example|
+    Timeout.timeout(30, &example)
+  end
+end

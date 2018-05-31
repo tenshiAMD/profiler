@@ -1,0 +1,72 @@
+<% if agent_number = ENV['TC_AGENT_NUMBER']
+  database_prefix = agent_number + '_'
+end %>
+
+<% if ENV['LIB_NAME']
+  lib_name = ENV['LIB_NAME'].gsub('/', '_')
+end %>
+
+<% db_host = ENV['DB_HOST'] %>
+<% db_password = ENV['DB_PASSWORD'] %>
+<% db_username = ENV['DB_USERNAME'] %>
+
+<% case ENV['DB']
+when 'postgresql' %>
+postgres: &postgres
+  adapter: postgresql
+  username: <%= db_username || 'postgres' %>
+  <% unless db_password.blank? %>
+  password: <%= db_password %>
+  <% end %>
+  <% unless db_host.blank? %>
+  host: <%= db_host %>
+  <% end %>
+  min_messages: warning
+
+development:
+  <<: *postgres
+  database: <%= database_prefix %><%= lib_name %>_development
+test:
+  <<: *postgres
+  database: <%= database_prefix %><%= lib_name %>_test
+production:
+  <<: *postgres
+  database: <%= database_prefix %><%= lib_name %>_production
+
+<% when 'mysql' %>
+mysql: &mysql
+  adapter: mysql2
+  encoding: utf8
+  username: <%= db_username || 'root' %>
+  <% unless db_password.blank? %>
+  password: <%= db_password %>
+  <% end %>
+  <% unless db_host.blank? %>
+  host: <%= db_host %>
+  <% end %>
+
+development:
+  <<: *mysql
+  database: <%= database_prefix %><%= lib_name %>_development
+test:
+  <<: *mysql
+  database: <%= database_prefix %><%= lib_name %>_test
+production:
+  <<: *mysql
+  database: <%= database_prefix %><%= lib_name %>_production
+
+<% else %>
+sqlite: &sqlite
+  adapter: sqlite3
+
+development:
+  <<: *sqlite
+  database: db/<%= lib_name %>_development.sqlite3
+test:
+  <<: *sqlite
+  database: db/<%= lib_name %>_test.sqlite3
+  timeout: 10000
+production:
+  <<: *sqlite
+  database: <%= lib_name %>_production.sqlite3
+<% end %>
