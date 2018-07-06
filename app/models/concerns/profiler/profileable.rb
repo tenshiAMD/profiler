@@ -20,9 +20,8 @@ module Profiler
 
       accepts_nested_attributes_for :profile,
                                     reject_if: proc { |attrs|
-                                                 required_fields = %w[first_name last_name gender birth_date
-                                                                      civil_status].freeze
-                                                 required_fields.any? { |field| attrs[field].blank? }
+                                                 %w[first_name last_name gender birth_date
+                                                    civil_status].any? { |field| attrs[field].blank? }
                                                }
 
       %i[addresses contact_numbers educations informations email_addresses

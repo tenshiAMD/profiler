@@ -5,7 +5,7 @@ RAILS_VERSIONS = %w[
 ].freeze
 
 RAILS_VERSIONS.each do |version|
-  ver = version.gsub('.', '_')
+  ver = version.tr('.', '_')
 
   appraise "rails_#{ver}" do
     gem 'rails', "~> #{version}.0"
@@ -13,13 +13,17 @@ RAILS_VERSIONS.each do |version|
     gem 'bootsnap', '>= 1.1.0'
     gem 'factory_bot'
     gem 'sqlite3'
+
+    gem 'coveralls', require: false
   end
 
   appraise "rails_#{ver}_edge" do
-      gem 'rails', github: 'rails/rails', branch: "#{version.gsub('.', '-')}-stable"
+    gem 'rails', github: 'rails/rails', branch: "#{version.tr('.', '-')}-stable"
 
-      gem 'bootsnap', '>= 1.1.0'
-      gem 'factory_bot'
-      gem 'sqlite3'
+    gem 'bootsnap', '>= 1.1.0'
+    gem 'factory_bot'
+    gem 'sqlite3'
+
+    gem 'coveralls', require: false
   end
 end
