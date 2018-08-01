@@ -1,5 +1,7 @@
-require 'coveralls'
-Coveralls.wear!
+if ENV['COVERAGE_ENABLED']
+  require 'coveralls'
+  Coveralls.wear!
+end
 
 ENV['RAILS_ENV'] ||= 'test'
 

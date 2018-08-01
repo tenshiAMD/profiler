@@ -21,9 +21,9 @@ gemfile:
   - gemfiles/rails_5_2_edge.gemfile
 
 env:
-  - DB=sqlite3
-  - DB=mysql DB_USERNAME=travis
-  - DB=postgresql DB_USERNAME=postgres
+  - COVERAGE_ENABLED=true DB=sqlite3
+  - COVERAGE_ENABLED=true DB=mysql DB_USERNAME=travis
+  - COVERAGE_ENABLED=true DB=postgresql DB_USERNAME=postgres
 
 before_install:
   - gem update --system
