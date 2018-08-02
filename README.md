@@ -1,6 +1,7 @@
 profiler
 =========
 
+[![CircleCI](https://circleci.com/gh/tenshiAMD/profiler.svg?style=svg)](https://circleci.com/gh/tenshiAMD/profiler)
 [![Build Status](https://travis-ci.org/tenshiAMD/profiler.svg?branch=master)](https://travis-ci.org/tenshiAMD/profiler)
 [![Coverage Status](https://coveralls.io/repos/github/tenshiAMD/profiler/badge.svg?branch=master)](https://coveralls.io/github/tenshiAMD/profiler?branch=master)
 
