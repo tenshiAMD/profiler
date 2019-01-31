@@ -26,7 +26,7 @@ module Profiler
 
     def install_migrations
       say_status :copying, 'migrations'
-      silence_warnings { rake 'railties:install:migrations' }
+      silence_warnings { rake 'railties:install:migrations FROM=profiler' }
     end
 
     def run_migrations
