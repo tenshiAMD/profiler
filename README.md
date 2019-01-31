@@ -20,7 +20,7 @@ Profiler add the following informations below:
 * other informations
 
 ## Compatibility
-Ruby: 2.3.4, 2.4.4, 2.5.1
+Ruby: 2.4, 2.5, 2.6
 
 Rails: 5.0 or latest
 
