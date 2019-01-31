@@ -78,7 +78,7 @@ Pull request, issue reports, comments and suggestions are warmly welcome and gre
 6. Create a new pull request
 
 ## Copyright
-Copyright © 2018 Angel Aviel Domaoan. 
+Copyright © 2018 - 2019 Angel Aviel Domaoan. 
 
 It is open-source, free software, and may be
 redistributed under the terms specified in the LICENSE file.
