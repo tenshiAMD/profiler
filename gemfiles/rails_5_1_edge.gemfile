@@ -2,10 +2,10 @@
 
 source "https://rubygems.org"
 
-gem "rails", github: "rails/rails", branch: "5-1-stable"
 gem "bootsnap", ">= 1.1.0"
 gem "factory_bot"
 gem "sqlite3"
 gem "coveralls", require: false
+gem "rails", github: "rails/rails", branch: "5-1-stable"
 
 gemspec path: "../"

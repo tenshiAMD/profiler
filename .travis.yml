@@ -19,6 +19,7 @@ gemfile:
   - gemfiles/rails_5_1_edge.gemfile
   - gemfiles/rails_5_2.gemfile
   - gemfiles/rails_5_2_edge.gemfile
+  - gemfiles/rails_6_0_beta.gemfile
 
 env:
   - COVERAGE_ENABLED=true DB=sqlite3
@@ -39,4 +40,5 @@ matrix:
     - gemfile: gemfiles/rails_5_0_edge.gemfile
     - gemfile: gemfiles/rails_5_1_edge.gemfile
     - gemfile: gemfiles/rails_5_2_edge.gemfile
+    - gemfile: gemfiles/rails_6_0_beta.gemfile
     
