@@ -5,4 +5,4 @@ gemspec
 gem 'bootsnap', '>= 1.1.0'
 gem 'coveralls', require: false
 gem 'factory_bot'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.0'

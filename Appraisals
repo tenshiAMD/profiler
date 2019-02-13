@@ -12,7 +12,7 @@ RAILS_VERSIONS.each do |version|
 
     gem 'bootsnap', '>= 1.1.0'
     gem 'factory_bot'
-    gem 'sqlite3'
+    gem 'sqlite3', '~> 1.3.0'
 
     gem 'coveralls', require: false
   end
@@ -22,7 +22,7 @@ RAILS_VERSIONS.each do |version|
 
     gem 'bootsnap', '>= 1.1.0'
     gem 'factory_bot'
-    gem 'sqlite3'
+    gem 'sqlite3', '~> 1.3.0'
 
     gem 'coveralls', require: false
   end
@@ -33,7 +33,7 @@ appraise 'rails_6_0_beta' do
 
   gem 'bootsnap', '>= 1.1.0'
   gem 'factory_bot'
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.0'
 
   gem 'coveralls', require: false
 end
