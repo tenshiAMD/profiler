@@ -23,14 +23,17 @@ module Profiler
     # engine name on the file name
     def check
       return unless File.directory?(app_dir)
+
       engine_in_app = app_migrations.map do |file_name|
         name, engine = file_name.split('.', 2)
         next unless match_engine?(engine)
+
         name
       end.compact
 
       missing_migrations = engine_migrations.sort - engine_in_app.sort
       return if missing_migrations.empty?
+
       puts "[#{engine_name.capitalize} WARNING] Missing migrations."
       missing_migrations.each do |migration|
         puts "[#{engine_name.capitalize} WARNING] #{migration} from #{engine_name} is missing."
@@ -52,6 +55,7 @@ module Profiler
     def app_migrations
       Dir.entries(app_dir).map do |file_name|
         next if ['.', '..'].include? file_name
+
         name = file_name.split('_', 2).last
         name.empty? ? next : name
       end.compact! || []

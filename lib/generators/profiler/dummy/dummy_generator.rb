@@ -50,6 +50,7 @@ module Profiler
 
     def test_dummy_inject_extension_requirements
       return unless DummyGeneratorHelper.inject_extension_requirements
+
       inside dummy_path do
         inject_require_for('profiler')
       end
@@ -105,6 +106,7 @@ module Profiler
 
     def remove_directory_if_exists(path)
       return unless File.directory?(path)
+
       puts 'Dummy Rails application still exist, deleting it...'
       remove_dir(path)
     end
