@@ -6,16 +6,16 @@ module Profiler
       has_many_attached :pictures if defined?(ActiveStorage)
 
       with_options as: :record, inverse_of: :record, dependent: :destroy do
-        has_one :profile, class_name: 'Profiler::Profile'
+        has_one :profile, class_name: "Profiler::Profile"
 
-        has_many :addresses, class_name: 'Profiler::Address'
-        has_many :contact_numbers, class_name: 'Profiler::ContactNumber'
-        has_many :informations, -> { where(type: nil) }, class_name: 'Profiler::Information'
-        has_many :email_addresses, class_name: 'Profiler::EmailAddress'
-        has_many :educations, class_name: 'Profiler::Education'
-        has_many :relationships, class_name: 'Profiler::Relationship'
-        has_many :websites, class_name: 'Profiler::Website'
-        has_many :works, class_name: 'Profiler::Work'
+        has_many :addresses, class_name: "Profiler::Address"
+        has_many :contact_numbers, class_name: "Profiler::ContactNumber"
+        has_many :informations, -> { where(type: nil) }, class_name: "Profiler::Information"
+        has_many :email_addresses, class_name: "Profiler::EmailAddress"
+        has_many :educations, class_name: "Profiler::Education"
+        has_many :relationships, class_name: "Profiler::Relationship"
+        has_many :websites, class_name: "Profiler::Website"
+        has_many :works, class_name: "Profiler::Work"
       end
 
       accepts_nested_attributes_for :profile,

@@ -25,7 +25,7 @@ module Profiler
       return unless File.directory?(app_dir)
 
       engine_in_app = app_migrations.map do |file_name|
-        name, engine = file_name.split('.', 2)
+        name, engine = file_name.split(".", 2)
         next unless match_engine?(engine)
 
         name
@@ -47,22 +47,22 @@ module Profiler
 
     def engine_migrations
       Dir.entries(engine_dir).map do |file_name|
-        name = file_name.split('_', 2).last.split('.', 2).first
+        name = file_name.split("_", 2).last.split(".", 2).first
         name.empty? ? next : name
       end.compact! || []
     end
 
     def app_migrations
       Dir.entries(app_dir).map do |file_name|
-        next if ['.', '..'].include? file_name
+        next if [".", ".."].include? file_name
 
-        name = file_name.split('_', 2).last
+        name = file_name.split("_", 2).last
         name.empty? ? next : name
       end.compact! || []
     end
 
     def app_dir
-      Rails.root.join('db', 'migrate')
+      Rails.root.join("db", "migrate")
     end
 
     def engine_dir
@@ -74,7 +74,7 @@ module Profiler
     end
 
     def migration_version
-      '5.1.4'
+      "5.1.4"
     end
   end
 end

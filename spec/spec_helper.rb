@@ -1,27 +1,27 @@
-if ENV['COVERAGE_ENABLED']
-  require 'coveralls'
+if ENV["COVERAGE_ENABLED"]
+  require "coveralls"
   Coveralls.wear!
 end
 
-ENV['RAILS_ENV'] ||= 'test'
+ENV["RAILS_ENV"] ||= "test"
 
 begin
-  require File.expand_path('dummy/config/environment', __dir__)
+  require File.expand_path("dummy/config/environment", __dir__)
 rescue LoadError
-  puts 'Could not load dummy application. Please ensure you have run `bundle exec rake test_app`'
+  puts "Could not load dummy application. Please ensure you have run `bundle exec rake test_app`"
 end
 
 # Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+abort("The Rails environment is running in production mode!") if Rails.env.production?
 
-require 'profiler/testing_support/requirements'
-require 'profiler/testing_support/factories'
-require 'profiler/testing_support/frameworks'
+require "profiler/testing_support/requirements"
+require "profiler/testing_support/factories"
+require "profiler/testing_support/frameworks"
 
 RSpec.configure do |config|
   config.color = true
-  config.fail_fast = ENV['FAIL_FAST'] || false
-  config.fixture_path = File.join(__dir__, 'fixtures')
+  config.fail_fast = ENV["FAIL_FAST"] || false
+  config.fixture_path = File.join(__dir__, "fixtures")
   config.infer_spec_type_from_file_location!
   config.mock_with :rspec
   config.raise_errors_for_deprecations!
