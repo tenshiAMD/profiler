@@ -1,0 +1,8 @@
+Metrics/LineLength:
+  Max: 110
+  Exclude:
+    - 'spec/**/*'
+
+Naming/PredicateName:
+  Exclude:
+    - 'lib/profiler/active_record.rb'

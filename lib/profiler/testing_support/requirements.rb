@@ -1,2 +1,2 @@
-require 'rspec/rails'
-require 'faker'
+require "rspec/rails"
+require "faker"
