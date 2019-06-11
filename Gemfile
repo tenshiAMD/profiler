@@ -7,7 +7,7 @@ gem "bootsnap", ">= 1.1.0"
 gem "rake", ">= 11.1"
 
 ## Databases
-gem "mysql2", "~> 0.4.0"
+gem "mysql2", "~> 0.5.2"
 gem "pg", "~> 0.21.0"
 gem "sqlite3", "~> 1.3.0"
 
