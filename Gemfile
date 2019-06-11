@@ -23,5 +23,5 @@ group :test do
   gem "database_cleaner"
   gem "factory_bot"
   gem "shoulda-callback-matchers"
-  gem "shoulda-matchers", "~> 3.0"
+  gem "shoulda-matchers", "~> 4.1"
 end
