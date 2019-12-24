@@ -8,7 +8,7 @@ gem "rake", ">= 11.1"
 
 ## Databases
 gem "mysql2", "~> 0.4.0"
-gem "pg", "~> 0.21.0"
+gem "pg", "~> 1.2.0"
 gem "sqlite3", "~> 1.3.0"
 
 group :development, :test do
