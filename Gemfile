@@ -9,7 +9,7 @@ gem "rake", ">= 11.1"
 ## Databases
 gem "mysql2", "~> 0.5.3"
 gem "pg", "~> 0.21.0"
-gem "sqlite3", "~> 1.3.0"
+gem "sqlite3", "~> 1.4.2"
 
 group :development, :test do
   gem "coveralls", require: false
