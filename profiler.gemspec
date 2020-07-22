@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   s.add_dependency "bundler", ">= 1.3.0"
   s.add_dependency "rails", ">= 5.0"
 
-  s.add_dependency "highline", "~> 1.6.18" # Necessary for the install generator
+  s.add_dependency "highline", ">= 1.6.18", "< 2.1.0" # Necessary for the install generator
 end
